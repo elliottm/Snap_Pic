@@ -7,7 +7,6 @@ I want to be able to create messages
 Background:
 Given I have logged in as a user
 Then I should see "Signed in successfully"
-And I follow "My messages"
 Then I should see "List of current messages"
 
 Scenario: Adding a message without image
