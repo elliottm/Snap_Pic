@@ -1,16 +1,22 @@
 
-<%= form_for :message, url: messages_path do |f| %>
+<%= form_for :message, url: new_message_path do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
  
   <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
+
+   <p>
+    <%= f.label :image_url %><br>
+    <%= f.text_area :image_url %>
   </p>
  
   <p>
     <%= f.submit %>
   </p>
+  
 <% end %>
