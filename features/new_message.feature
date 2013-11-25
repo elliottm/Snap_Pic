@@ -17,3 +17,10 @@ And I fill in the new message form correctly
 And I press "Create Message"
 Then I should see "yeeooo"
 
+Scenario: Adding a message with an image
+
+Given I follow "New message"
+And I fill in the new message form correctly
+And I attach an image
+And I press "Create Message"
+Then I should see a picture
