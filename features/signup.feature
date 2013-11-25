@@ -12,18 +12,19 @@ And I fill out the signup page
 And I press "Sign up"
 Then I should see "signed up successfully"
 
-Scenario: Signing in
+Scenario: Signing in sucessfully
 
 Given I am on the homepage
-And I follow "Sign Up"
-And I fill out the signup page
-And I press "Sign up"
-Then I should see "signed up successfully"
-And I follow "Logout"
-Then I should see "Signed out"
 And I follow "Login"
 And I fill out the signin page
 And I press "Sign in"
 Then I should see "Signed in successfully"
 
+Scenario: Signing in unsuccessfully
+
+Given I am on the homepage
+And I follow "Login"
+And I fill out the signin page incorrectly
+And I press "Sign in"
+Then I should see "Invalid"
 
