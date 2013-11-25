@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'devise'
+gem "paperclip", "~> 3.0"
 
 group :test, :development do
   gem 'rspec-rails'
