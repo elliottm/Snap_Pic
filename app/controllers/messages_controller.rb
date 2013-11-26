@@ -30,8 +30,12 @@ before_action :check_permission, only: [:update, :destroy]
     end
 
 
-	private
+	def group
+      @messages = Message.all 
+	end
 
+
+	private
 	def check_permission
 		@message = Message.find(params[:id])
 		if @message.user != current_user
@@ -43,5 +47,6 @@ before_action :check_permission, only: [:update, :destroy]
 	def message_params
       params.require(:message).permit(:title, :description, :image)
 	end
+
 
 end

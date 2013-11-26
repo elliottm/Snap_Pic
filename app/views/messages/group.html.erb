@@ -1,0 +1,24 @@
+<h1> Global stream: </h1>
+
+<table>
+	
+  <tr>
+    <th>Image</th>
+    <th>Created when?</th>
+    <th>Uploaded by?</th>
+    <th>Remove</th>
+  </tr>
+
+	<% @messages.each do |message| %>
+
+  <tr>
+  	<td><%= image_tag message.image.url(:thumb), class:'uploaded-pic' %></td>
+  	<td><%= time_ago_in_words(message.created_at)%> ago</td>
+  	<td><%= message.user.email if message.user %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
+<%= link_to "Back to your index", messages_path %>

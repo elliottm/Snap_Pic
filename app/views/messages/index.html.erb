@@ -7,7 +7,7 @@
     <th>Description</th>
     <th>Image</th>
     <th>Created when?</th>
-    <th>Remove</th>
+    <th>Uploaded by?</th>
   </tr>
 
 <% @messages.each do |message| %>
@@ -16,7 +16,8 @@
       <td><%= message.title %></td>
       <td><%= message.description %></td>
       <td><%= image_tag message.image.url(:thumb), class:'uploaded-pic' %></td>
-      <td><%=time_ago_in_words(message.created_at) %> ago</td>
+      <td><%= time_ago_in_words(message.created_at) %> ago</td>
+      <td><%= message.user.email %>
       <td><%= link_to 'Delete', message_path(message), method: :delete %></td>
 </tr>
 
@@ -26,3 +27,5 @@
 
 <br>
 <%= link_to "New message", new_message_path %>
+<%= link_to "Global messages", group_messages_path %>
+

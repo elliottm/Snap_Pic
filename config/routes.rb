@@ -1,6 +1,10 @@
 BK::Application.routes.draw do
 
-  resources :messages
+  resources :messages do
+    collection do
+      get 'group'
+    end
+  end
 
   devise_for :users
   
