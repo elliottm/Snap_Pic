@@ -12,8 +12,13 @@ end
 
 group :production do
  gem 'aws-sdk'
+ gem 'rails_12factor'
 
 end
+
+gem 'twitter-bootstrap-rails',
+    github: 'seyhunak/twitter-bootstrap-rails',
+    branch: 'bootstrap3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
