@@ -10,6 +10,11 @@ group :test, :development do
   gem 'factory_girl_rails'
 end
 
+group :production do
+ gem 'aws-sdk'
+
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 

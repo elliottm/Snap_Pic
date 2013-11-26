@@ -8,6 +8,8 @@
     <th>Image</th>
     <th>Created when?</th>
     <th>Uploaded by?</th>
+    <th>Show tags</th>
+    <th>Remove Image</th>
   </tr>
 
 <% @messages.each do |message| %>
@@ -28,4 +30,6 @@
 <br>
 <%= link_to "New message", new_message_path %>
 <%= link_to "Global messages", group_messages_path %>
+<%= link_to "Tag options", tags_path %>
+<%= link_to "Add tag", new_tag_path %>
 

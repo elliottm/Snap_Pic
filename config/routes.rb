@@ -5,6 +5,8 @@ BK::Application.routes.draw do
       get 'group'
     end
   end
+  
+  resources :tags
 
   devise_for :users
   

@@ -1,0 +1,18 @@
+<h1> List of Tags </h1>
+
+<table>
+  <tr>
+  	<th>Description</th>
+  </tr>
+
+<% @tags.each do | tag | %>
+ 
+ <tr>
+  <td><%= tag.description %></td>
+ </tr>
+
+<% end %>
+
+</table>
+
+<%= link_to "My Index", messages_path %>
