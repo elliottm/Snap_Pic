@@ -16,20 +16,19 @@ class Message < ActiveRecord::Base
 
 
 	def self.search(search_string)
-		a = Message.all.map do |message|
-			message.tags.map do |tag|
-		  # for i in tag 
-		  	# if tag.description == search_string
-		  {message => tag.description} 
-
+		# a = Message.all.map do |message|
+		# 	message.tags.map do |tag|
+		#   		{message => tag.description} 
+		#     end
 		# end
-	 #    end
-	    end
-	end
+		# a.flatten.map { |e| e.map { |k, v|  k if v == search_string } }.flatten.compact
+		# REFACTORED TO ... TARGETING TAGS .... via utilising ruby langugage
 
-		# a.flatten.map { |e| e.each { |k, v| puts k if v == search_string } }
-		a.flatten.map { |e| e.map { |k, v|  k if v == search_string } }.flatten.compact
-	end
+		# Tag.all.select{|t| t.description == search_string}.map(&:messages).flatten
+		
+		# refactored but targeting message but using SQL and leveraging from active record querying
+		Message.joins(:tags).where(tags: {description: search_string})
+    end
 
 
 
