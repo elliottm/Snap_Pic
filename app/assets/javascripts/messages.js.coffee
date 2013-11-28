@@ -2,6 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+debugger 
+
 connection = new WebSocketRails(window.location.host + '/websocket')
 
 channel = connection.subscribe('messages') #message #has to correspond to 'shouter'/broadcaster code in
@@ -19,7 +21,6 @@ channel.bind 'new', (image) ->
 
   $('.messages').append($image)
 
-  debugger 
 
 
 
