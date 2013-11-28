@@ -5,7 +5,7 @@ before_action :check_permission, only: [:update, :destroy]
 
 	def index
 		if params[:search]
-		@messages = Message.search(params[:search])
+			@messages = Message.search(params[:search])
 	    else
 	        @messages = Message.where(user_id: current_user.id)
 	    end
@@ -27,6 +27,8 @@ before_action :check_permission, only: [:update, :destroy]
 	  #better way to do a merge !
 
 	  if @message.save
+	  	flash[:notice] = 'photo added'
+	  	WebsocketRails[:messages].trigger 'new', {title: @message.title, image_url: @message.image.url(:thumb)}
 	  	redirect_to messages_path
 	  else
 	  	render 'new'

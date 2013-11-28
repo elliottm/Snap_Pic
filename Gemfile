@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem "paperclip", "~> 3.0"
+gem 'websocket-rails'
+gem 'thin'
 
 group :test, :development do
   gem 'rspec-rails'

@@ -6,7 +6,7 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<table>
+<table class='messages'>
 	
   <tr>
     <th>Title</th>
@@ -20,8 +20,8 @@
 
 <% @messages.each do |message| %>
 
-<tr>
-      <td><%= message.title %></td>
+<tr class='message'>
+      <td class='title'><%= message.title %></td>
       <td><%= message.description %></td>
       <td><%= image_tag message.image.url(:thumb), class:'uploaded-pic' %></td>
       <td><%= time_ago_in_words(message.created_at) %> ago</td>
