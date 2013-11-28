@@ -1,5 +1,11 @@
 <h1>List of current messages:</h1>
 
+<%= form_tag(messages_path, method: "get") do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
 	
   <tr>
@@ -19,7 +25,10 @@
       <td><%= message.description %></td>
       <td><%= image_tag message.image.url(:thumb), class:'uploaded-pic' %></td>
       <td><%= time_ago_in_words(message.created_at) %> ago</td>
-      <td><%= message.user.email %>
+      <td><%= message.user.email if message.user %></td>
+      <td><% message.tags.each do |tag| %>
+        <%= link_to tag.description, tag %> </td>
+      <% end %>
       <td><%= link_to 'Delete', message_path(message), method: :delete %></td>
 </tr>
 

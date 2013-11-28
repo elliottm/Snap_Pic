@@ -2,6 +2,10 @@
 
 FactoryGirl.define do
   factory :tag do
-    description "MyString"
+    description "hello"
+  end
+
+  factory :yolo, class: Tag do
+  	description  "#YOLO"
   end
 end

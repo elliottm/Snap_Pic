@@ -4,7 +4,11 @@ before_filter :authenticate_user!
 before_action :check_permission, only: [:update, :destroy]
 
 	def index
-	  @messages = Message.where(user_id: current_user.id)
+		if params[:search]
+		@messages = Message.search(params[:search])
+	    else
+	        @messages = Message.where(user_id: current_user.id)
+	    end
 	end
 
 	def new
@@ -12,8 +16,14 @@ before_action :check_permission, only: [:update, :destroy]
 	end
 
 	def create
+
 	  @message = Message.new(message_params)
 	  @message.user = current_user
+
+	 #  tags = params[:message][:tags].split(' ').map do | word |
+		# @message.tags << Tag.create(description: word)
+	 #  end
+	  
 	  #better way to do a merge !
 
 	  if @message.save
@@ -29,11 +39,9 @@ before_action :check_permission, only: [:update, :destroy]
       redirect_to messages_path
     end
 
-
 	def group
       @messages = Message.all 
 	end
-
 
 	private
 	def check_permission
@@ -45,7 +53,7 @@ before_action :check_permission, only: [:update, :destroy]
 	end
 
 	def message_params
-      params.require(:message).permit(:title, :description, :image)
+      params.require(:message).permit(:title, :image, :tag_names)
 	end
 
 
