@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-dispatcher = new WebSocketRails('localhost:3000/websocket')
+dispatcher = new WebSocketRails(windows.location.host + '/websocket')
 
 channel = dispatcher.subscribe('messages') #message #has to correspond to 'shouter'/broadcaster code in
 #controller
