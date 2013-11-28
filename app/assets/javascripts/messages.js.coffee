@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-dispatcher = new WebSocketRails(windows.location.host + '/websocket')
+connection = new WebSocketRails(window.location.host + '/websocket')
 
-channel = dispatcher.subscribe('messages') #message #has to correspond to 'shouter'/broadcaster code in
+channel = connection.subscribe('messages') #message #has to correspond to 'shouter'/broadcaster code in
 #controller
 
 channel.bind 'new', (image) ->
